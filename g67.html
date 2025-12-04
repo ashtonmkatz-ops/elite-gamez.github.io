@@ -719,67 +719,67 @@
 						<option value="'VT323', monospace">VT323 (gamey)</option>
 						<option value="'Press Start 2P', cursive">Press Start (pixel)</option>
 					</select>
+													</div>
+													<div class="col">
+														<label class="label">Card radius (px)</label>
+														<input id="cardRadius" type="range" min="0" max="40" value="10">
+				</div>
+														<div class="col">
+															<label class="label">Glow size (px)</label>
+															<input id="glowSize" type="range" min="4" max="60" value="15">
+				</div>
+															<div class="col">
+																<label class="label">Glow strength (0-1)</label>
+																<input id="glowStrength" type="range" min="0" max="1" step="0.01" value="0.25">
+				</div>
+															</div>
+														</div>
+
+														<div class="section">
+															<h4>Snow & Particles</h4>
+															<div class="row">
+																<div class="col">
+																	<label class="label">Snow color</label>
+																	<input id="snowColor" type="color" value="#ffffff">
+				</div>
+																	<div class="col">
+																		<label class="label">Snow count: <span id="snowCountLabel">150</span></label>
+																		<input id="snowCount" type="range" min="0" max="400" value="150">
+				</div>
+																		<div class="col">
+																			<label class="label">Snow size: <span id="snowSizeLabel">3</span></label>
+																			<input id="snowSize" type="range" min="1" max="10" value="3">
+				</div>
+																			<div class="col">
+																				<label class="label">Snow speed: <span id="snowSpeedLabel">1.2</span></label>
+																				<input id="snowSpeed" type="range" min="0.2" max="4" step="0.1" value="1.2">
+				</div>
+																			</div>
+																		</div>
+																	</div>
+
+																	<div class="actions">
+																		<button class="btn-ghost" id="applyBtn">Apply (autosaves)</button>
+																		<button class="btn-primary" id="saveBtn">Save</button>
+																	</div>
+																</div>
+
+																<div id="playlistMenu" class="playlist-menu">
+																	<div class="playlist-menu-header"
+																		id="playlistMenuDrag">
+																		<div>Songs</div>
+																		<input type="text" id="playlistSearch" placeholder="Search songs..." style="width:calc(96% - 5px);margin-top:10px;padding:8px;border-radius:8px;border:none;background:rgba(255,255,255,0.05);color:var(--text);" />
 </div>
-<div class="col">
-<label class="label">Card radius (px)</label>
-<input id="cardRadius" type="range" min="0" max="40" value="10">
-				</div>
-<div class="col">
-<label class="label">Glow size (px)</label>
-<input id="glowSize" type="range" min="4" max="60" value="15">
-				</div>
-<div class="col">
- <label class="label">Glow strength (0-1)</label>
- <input id="glowStrength" type="range" min="0" max="1" step="0.01" value="0.25">
-				</div>
-       </div>
-      </div>
+																		<ul id="playlistMenuList"
+																			class="playlist-menu-list"></ul>
+																	</div>
 
-<div class="section">
- <h4>Snow & Particles</h4>
- <div class="row">
-  <div class="col">
-   <label class="label">Snow color</label>
-   <input id="snowColor" type="color" value="#ffffff">
-				</div>
-<div class="col">
- <label class="label">Snow count: <span id="snowCountLabel">150</span></label>
- <input id="snowCount" type="range" min="0" max="400" value="150">
-				</div>
- <div class="col">
-  <label class="label">Snow size: <span id="snowSizeLabel">3</span></label>
-  <input id="snowSize" type="range" min="1" max="10" value="3">
-				</div>
- <div class="col">
-  <label class="label">Snow speed: <span id="snowSpeedLabel">1.2</span></label>
-  <input id="snowSpeed" type="range" min="0.2" max="4" step="0.1" value="1.2">
-				</div>
-   </div>
-  </div>
- </div>
-
- <div class="actions">
-   <button class="btn-ghost" id="applyBtn">Apply (autosaves)</button>
-   <button class="btn-primary" id="saveBtn">Save</button>
-   </div>
-  </div>
-
-  <div id="playlistMenu" class="playlist-menu">
-   <div class="playlist-menu-header"
-    id="playlistMenuDrag">
-    <div>Songs</div>
-    <input type="text" id="playlistSearch" placeholder="Search songs..." style="width:calc(96% - 5px);margin-top:10px;padding:8px;border-radius:8px;border:none;background:rgba(255,255,255,0.05);color:var(--text);" />
-</div>
-  <ul id="playlistMenuList"
-    class="playlist-menu-list"></ul>
- </div>
-
- <div id="musicPlayer" class="music-player">
-  <div class="player-header">
-   <span id="currentTrackTitle">Loading...</span>
-    <div
- style="display:flex;align-items:center;gap:8px">
- <button id="togglePlaylistBtn" title="Show Playlist">
+																	<div id="musicPlayer" class="music-player">
+																		<div class="player-header">
+																			<span id="currentTrackTitle">Loading...</span>
+																			<div
+																				style="display:flex;align-items:center;gap:8px">
+																				<button id="togglePlaylistBtn" title="Show Playlist">
 <svg viewBox="" width="20" height="20" aria-hidden="true" focusable="false"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" fill="currentColor"/></svg>
 </button>
 																				<button id="togglePlayBtn" class="play-btn">
@@ -1821,21 +1821,49 @@ drawSnow();
   }).catch(function(err){ console.error('Failed to load music.json', err); currentTrackTitle.textContent='Music load error'; });
 
 })();
-                                  </script>
+																	</script>
 
-                                <script type="text/javascript">
-                                  atOptions = {
-                                   	'key' : 'ae8fc633a110ea93489381dde95ffe42',
-                                   	'format' : 'iframe',
-                                   	'height' : 250,
-                                   	'width' : 300,
-                                   	'params' : {}
-                                  };
-                                </script>
-                                <script type="text/javascript" src="//www.highperformanceformat.com/ae8fc633a110ea93489381dde95ffe42/invoke.js"></script>
+<script type="text/javascript">
+    atOptions = {
+        'key': 'ae8fc633a110ea93489381dde95ffe42',
+        'format': 'iframe',
+        'height': 250,
+        'width': 300,
+        'params': {}
+    };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/ae8fc633a110ea93489381dde95ffe42/invoke.js"></script>
 
-                                </body>
+<script type="text/javascript">
+    atOptions = {
+        'key': '8e949b69ff013cae42cd77f2d6221a3c',
+        'format': 'iframe',
+        'height': 60,
+        'width': 468,
+        'params': {}
+    };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/8e949b69ff013cae42cd77f2d6221a3c/invoke.js"></script>
 
-                                </html>
+<script async="async" data-cfasync="false" src="//pl28185465.effectivegatecpm.com/6049c0b18ad1575d66d94ba9a3ec43d8/invoke.js"></script>
+<div id="container-6049c0b18ad1575d66d94ba9a3ec43d8"></div>
+
+<script type="text/javascript" src="//pl28185483.effectivegatecpm.com/86/d3/e3/86d3e3f862e9c517bef3290720611966.js"></script>
+
+<script src="https://www.effectivegatecpm.com/hpwcpb6qf?key=77a6a808611ecb945216efedf89fda97"></script>
+
+<script type="text/javascript" src="//pl28185514.effectivegatecpm.com/32/9c/f4/329cf4482dc576086e43afb63b6014a2.js"></script>
+
+<script type="text/javascript">
+    atOptions = {
+        'key': 'c8a35640ba41c7846156160500bea254',
+        'format': 'iframe',
+        'height': 300,
+        'width': 160,
+        'params': {}
+    };
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/c8a35640ba41c7846156160500bea254/invoke.js"></script>
+
 </body>
-<html>
+</html>
