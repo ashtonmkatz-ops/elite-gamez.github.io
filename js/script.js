@@ -18,7 +18,6 @@ discordBtn.onclick = function(){
 
 var gamesData = [];
 
-// Load games from json
 fetch("games.json")
   .then(function(res){
     return res.json();
@@ -37,7 +36,6 @@ function renderGames(games){
   for(var i = 0; i < games.length; i++){
     var game = games[i];
     
-    // get current theme settings for glow effect
     var savedSettings = localStorage.getItem("elite_gamez_theme_v1");
     var currentSettings = DEFAULTS;
     if(savedSettings){
@@ -52,7 +50,6 @@ function renderGames(games){
     card.className = "game-card";
     card.style.display = "flex";
 
-    // apply the glow effect
     var glowSize = currentSettings.glowSize || 15;
     var glowColor = currentSettings.glowColor || '#ff6600';
     var glowStrength = currentSettings.glowStrength || 0.25;
@@ -62,7 +59,6 @@ function renderGames(games){
                      '<h2>' + game.title + '</h2>' +
                      '<p>' + game.description + '</p>';
     
-    // add click handler to image
     var img = card.querySelector("img");
     img.onclick = (function(gameData){
       return function(){
