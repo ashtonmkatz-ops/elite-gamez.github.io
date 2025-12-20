@@ -160,7 +160,6 @@ searchInput.addEventListener("input", function(){
       var title = titleElement.textContent.toLowerCase();
       var description = descriptionElement.textContent.toLowerCase();
       
-      // check if filter matches title or description
       if(title.indexOf(filter) !== -1 || description.indexOf(filter) !== -1){
         card.style.display = "flex";
         visibleCount++;
