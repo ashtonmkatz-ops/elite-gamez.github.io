@@ -74,7 +74,19 @@ function renderGames(games){
 
 function openGame(game){
   gameFrame.src = "about:blank";
-  gameFrame.textContent = fetch(`${game.url}`).then(response => response.text())
+  fetch(game.url)
+      .then(function(res){
+        return res.text();
+      })
+      .then(function(html){
+        var blob = new Blob([html], {type: "text/html"});
+        var blobUrl = URL.createObjectURL(blob);
+        gameFrame.src = blobUrl
+      })
+      .catch(function(err){
+        alert("Failed to open game: " + err);
+      });
+  
   gameTitle.textContent = game.title;
   gameModal.style.display = "flex";
 
