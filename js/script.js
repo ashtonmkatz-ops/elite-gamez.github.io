@@ -105,21 +105,21 @@ function openGame(game){
     }
   };
 
-  aboutBlankBtn.onclick = function(){
+  aboutBlankBtn.onclick = fetch(game.url).then(response => response.text()).then(text => {
     var newTab = window.open("about:blank", "_blank");
     if(newTab){
       var html = '<html><head><title>' + game.title + '</title>' +
                  '<style>body,html{margin:0;padding:0;height:100%;overflow:hidden;}</style>' +
-                 '</head><body>' +
-                 '<iframe src="' + game.url + '" style="width:100vw;height:100vh;border:none;"></iframe>' +
+                 '</head><body>' + text
+                  +
                  '</body></html>';
       newTab.document.write(html);
       newTab.document.close();
     } else {
       alert("Popup blocked! Please allow popups for this site.");
     }
-  };
-
+  });
+  
   blobBtn.onclick = function(){
     fetch(game.url)
       .then(function(res){
