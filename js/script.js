@@ -105,7 +105,7 @@ function openGame(game){
     }
   };
 
-  aboutBlankBtn.onclick = fetch(game.url).then(response => response.text()).then(text => {
+  aboutBlankBtn.onclick = function(){fetch(game.url).then(response => response.text()).then(text => {
     var newTab = window.open("about:blank", "_blank");
     if(newTab){
       var html = '<html><head><title>' + game.title + '</title>' +
@@ -119,6 +119,7 @@ function openGame(game){
       alert("Popup blocked! Please allow popups for this site.");
     }
   });
+                                    };
   
   blobBtn.onclick = function(){
     fetch(game.url)
