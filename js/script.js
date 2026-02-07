@@ -74,8 +74,7 @@ function renderGames(games){
 
 function openGame(game){
   gameFrame.src = "about:blank";
-  gameFrame.src = game.url;
-  gameTitle.textContent = game.title;
+  gameTitle.textContent = fetch(`${game.url}`).then(response => response.text());
   gameModal.style.display = "flex";
 
   downloadBtn.onclick = function(){
