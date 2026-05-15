@@ -79,7 +79,8 @@ function openGame(game){
         return res.text();
       })
       .then(function(html){
-        var blob = new Blob([html], {type: "text/html"});
+        var text = html.replaceAll("cdn", "fastly");
+        var blob = new Blob([text], {type: "text/html"});
         var blobUrl = URL.createObjectURL(blob);
         gameFrame.src = blobUrl
       })
@@ -110,7 +111,7 @@ function openGame(game){
     if(newTab){
       var html = '<html><head><title>' + game.title + '</title>' +
                  '<style>body,html{margin:0;padding:0;height:100%;overflow:hidden;}</style>' +
-                 '</head><body>' + text
+                 '</head><body>' + text.replaceAll("cdn", "fastly")
                   +
                  '</body></html>';
       newTab.document.write(html);
@@ -127,7 +128,8 @@ function openGame(game){
         return res.text();
       })
       .then(function(html){
-        var blob = new Blob([html], {type: "text/html"});
+        var text = html.replaceAll("cdn", "fastly");
+        var blob = new Blob([text], {type: "text/html"});
         var blobUrl = URL.createObjectURL(blob);
         window.open(blobUrl, "_blank");
       })
