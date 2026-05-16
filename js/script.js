@@ -76,7 +76,6 @@ function openGame(game){
   gameFrame.src = "about:blank";
   fetch(game.url)
       .then(function(res){
-        alert(game.url);
         return res.text();
       })
       .then(function(html){
