@@ -79,7 +79,6 @@ function openGame(game){
         return res.text();
       })
       .then(function(html){
-        alert(html.length);
         var text = html.replaceAll("cdn", "fastly");
         var blob = new Blob([text], {type: "text/html"});
         var blobUrl = URL.createObjectURL(blob);
